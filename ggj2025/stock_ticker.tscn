@@ -18,10 +18,18 @@ script = ExtResource("3_q7nul")
 
 [node name="line graph" type="Control" parent="economy"]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 1148.0
-offset_bottom = 656.0
+anchor_left = 0.128
+anchor_top = 0.019
+anchor_right = 0.882
+anchor_bottom = 0.764
+offset_left = 0.543991
+offset_top = -0.312001
+offset_right = -0.0640259
+offset_bottom = -0.072052
 script = ExtResource("4_qnqhl")
+line_color = Color(0.78462, 0.262849, 0.452135, 1)
+background_color = Color(0, 0, 0, 1)
+grid_color = Color(0.277528, 0.277528, 0.277528, 1)
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.114
