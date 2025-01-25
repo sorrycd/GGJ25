@@ -1,8 +1,11 @@
-extends Label
-
+extends Node
+var inheritance = 19 # starting value i
+var networth = 0
+var liquid = inheritance
+var holdings = {}
+signal liquid_assets
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$Label
 	pass # Replace with function body.
 
 
@@ -10,6 +13,5 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-
-func _on_stockprice_buy_price(price) -> void:
-	text = str(price)#label text
+func _on_buy_button_pressed(i) -> void:
+	pass # Replace with function body.
