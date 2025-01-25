@@ -77,9 +77,11 @@ func _ready():
 		
 
 
-func _on_economy_market_changed(stock1) -> void:
-	print('passed',stock1)
-	clear_data()
-	for i in stock1:
-		add_data_point(i)
+func _on_economy_market_changed(stocks) -> void:
+	#for stock in stocks:
+		print('passed',stocks[0])
+		clear_data()
+		for i in range(len(stocks[0])):
+			print(stocks[0][i])
+			add_data_point(stocks[0][i])
 	
