@@ -12,5 +12,5 @@ func _process(delta: float) -> void:
 
 
 func _on_stockprice_buy_price(price) -> void:
-	print('recieved',price)
-	$Label.set_text(str(price))
+	text = str(price)
+	#$Label.set_text(str(price))
