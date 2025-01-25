@@ -1,9 +1,32 @@
-[gd_scene load_steps=2 format=3 uid="uid://b5f2v1y6eweyh"]
+[gd_scene load_steps=6 format=3 uid="uid://b5f2v1y6eweyh"]
 
+[ext_resource type="Script" path="res://Main.gd" id="1_gfst1"]
 [ext_resource type="Script" path="res://stock_ticker.gd" id="1_y8aqp"]
+[ext_resource type="Script" path="res://economy.gd" id="3_q7nul"]
+[ext_resource type="Script" path="res://line_graph.gd" id="4_qnqhl"]
+[ext_resource type="Script" path="res://timer.gd" id="5_d147g"]
 
-[node name="Node2D" type="Node2D"]
+[node name="Main" type="Node2D"]
+script = ExtResource("1_gfst1")
 
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2(346, 495)
 script = ExtResource("1_y8aqp")
+
+[node name="economy" type="Node" parent="."]
+script = ExtResource("3_q7nul")
+
+[node name="line graph" type="Control" parent="economy"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1148.0
+offset_bottom = 656.0
+script = ExtResource("4_qnqhl")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.114
+autostart = true
+script = ExtResource("5_d147g")
+
+[connection signal="market_changed" from="economy" to="economy/line graph" method="_on_economy_market_changed"]
+[connection signal="timeout" from="Timer" to="economy" method="_on_timer_timeout"]

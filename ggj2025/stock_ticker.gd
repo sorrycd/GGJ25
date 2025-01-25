@@ -1,4 +1,4 @@
-extends HBoxContainer
+extends Node
 
 # Stock data structure
 class StockData:
