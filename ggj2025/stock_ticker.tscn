@@ -67,7 +67,7 @@ text = "SELL"
 [connection signal="timeout" from="GlobalTimer" to="Stock Container/stockprice" method="_on_timer_timeout"]
 [connection signal="buy_price" from="Stock Container/stockprice" to="." method="_on_stockprice_buy_price"]
 [connection signal="buy_price" from="Stock Container/stockprice" to="." method="_on_stockprice_buy_price_buy_buttn"]
-[connection signal="buy_price" from="Stock Container/stockprice" to="Stock Container/stockprice/Label" method="_on_stockprice_buy_price"]
 [connection signal="buy_price" from="Stock Container/stockprice" to="Stock Container/BuyButton" method="_on_stockprice_buy_price"]
+[connection signal="buy_price" from="Stock Container/stockprice" to="Stock Container/stockprice/Label" method="_on_stockprice_buy_price"]
 [connection signal="market_changed" from="Stock Container/stockprice" to="Stock Container/stockprice/linegraph" method="_on_economy_market_changed"]
 [connection signal="pressed" from="Stock Container/BuyButton" to="Holdings" method="_on_buy_button_pressed"]
