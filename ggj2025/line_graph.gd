@@ -66,13 +66,8 @@ func clear_data():
 
 # Example usage
 func _ready():
+	pass
 	# Populate with sample data
-	add_data_point(10)
-	add_data_point(15)
-	add_data_point(7)
-	add_data_point(20)
-	add_data_point(12)
-
 
 		
 
