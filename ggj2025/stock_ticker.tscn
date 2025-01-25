@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://b5f2v1y6eweyh"]
+[gd_scene load_steps=9 format=3 uid="uid://b5f2v1y6eweyh"]
 
 [ext_resource type="Script" path="res://Main.gd" id="1_gfst1"]
 [ext_resource type="Script" path="res://stock_ticker.gd" id="1_y8aqp"]
 [ext_resource type="Script" path="res://economy.gd" id="3_q7nul"]
 [ext_resource type="Script" path="res://line_graph.gd" id="4_qnqhl"]
 [ext_resource type="Script" path="res://timer.gd" id="5_d147g"]
+[ext_resource type="Script" path="res://node.gd" id="6_bd48g"]
+[ext_resource type="Script" path="res://buy_button.gd" id="7_yt78j"]
+[ext_resource type="Script" path="res://label.gd" id="8_6o2cy"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_gfst1")
@@ -13,10 +16,22 @@ script = ExtResource("1_gfst1")
 position = Vector2(346, 495)
 script = ExtResource("1_y8aqp")
 
-[node name="economy" type="Node" parent="."]
+[node name="GlobalTimer" type="Timer" parent="."]
+wait_time = 0.114
+autostart = true
+script = ExtResource("5_d147g")
+
+[node name="Holdings" type="Node" parent="."]
+script = ExtResource("6_bd48g")
+
+[node name="Stock Container" type="HBoxContainer" parent="."]
+offset_right = 109.0
+offset_bottom = 40.0
+
+[node name="stockprice" type="Node" parent="Stock Container"]
 script = ExtResource("3_q7nul")
 
-[node name="line graph" type="Control" parent="economy"]
+[node name="linegraph" type="Control" parent="Stock Container/stockprice"]
 layout_mode = 3
 anchor_left = 0.128
 anchor_top = 0.019
@@ -31,10 +46,23 @@ line_color = Color(0.78462, 0.262849, 0.452135, 1)
 background_color = Color(0, 0, 0, 1)
 grid_color = Color(0.277528, 0.277528, 0.277528, 1)
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 0.114
-autostart = true
-script = ExtResource("5_d147g")
+[node name="Label" type="Label" parent="Stock Container/stockprice"]
+offset_left = 92.0
+offset_top = 8.0
+offset_right = 93.0
+offset_bottom = 31.0
+script = ExtResource("8_6o2cy")
 
-[connection signal="market_changed" from="economy" to="economy/line graph" method="_on_economy_market_changed"]
-[connection signal="timeout" from="Timer" to="economy" method="_on_timer_timeout"]
+[node name="BuyButton" type="Button" parent="Stock Container"]
+layout_mode = 2
+text = "BUY"
+script = ExtResource("7_yt78j")
+
+[node name="SellButton" type="Button" parent="Stock Container"]
+layout_mode = 2
+text = "SELL"
+
+[connection signal="timeout" from="GlobalTimer" to="Stock Container/stockprice" method="_on_timer_timeout"]
+[connection signal="buy_price" from="Stock Container/stockprice" to="Stock Container/stockprice/Label" method="_on_stockprice_buy_price"]
+[connection signal="market_changed" from="Stock Container/stockprice" to="Stock Container/stockprice/linegraph" method="_on_economy_market_changed"]
+[connection signal="pressed" from="Stock Container/BuyButton" to="Holdings" method="_on_buy_button_pressed"]
