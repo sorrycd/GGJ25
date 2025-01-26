@@ -68,12 +68,13 @@ func clear_data():
 func _ready():
 	pass
 	# Populate with sample data
+var holding_a = 0
+var holding_b = 0
+func _on_holdings_sell_asset_data(i) -> void:
+	holding_a = i[0]
 
-func _on_economy_market_changed(stock) -> void:
-	#for stock in stocks:
-		#print('passed',stock)
-		clear_data()
-		for i in range(len(stock)):
-			#print(stock[i])
-			add_data_point(stock[i])
-	
+
+
+func _on_global_timer_timeout() -> void:
+	add_data_point(holding_a)
+	pass # Replace with function body.

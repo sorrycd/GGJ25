@@ -12,14 +12,14 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
-
+signal sell_asset_data
 	
 func _on_stockprice_market_changed(i) -> void:
 	stockprice = i[-1]
 	print('help',i[-1])
 	print('holdings',stockprice)
-signal sell_asset_data
-signal buy_asset_data
+	sell_asset_data.emit([stock_holdings,liquid])
+
 func _on_buy_button_pressed() -> void:
 	print('BUYBUYBUY')
 	if liquid > stockprice:

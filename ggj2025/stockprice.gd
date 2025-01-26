@@ -16,7 +16,7 @@ func marketflux(): # calling this function generates a random number
 	return randomnumber
 signal market_changed
 signal buy_price
-@export var graph_length = 12
+@export var graph_length = 24
 func _on_timer_timeout() -> void: #
 	var mf = marketflux()
 	price = abs(stock[-1]+mf+0)

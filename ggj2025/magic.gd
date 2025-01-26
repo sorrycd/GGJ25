@@ -1,4 +1,6 @@
-extends Label
+extends Node
+var magicmeter = 0
+var magic_rate = 1
 
 
 # Called when the node enters the scene tree for the first time.
@@ -12,5 +14,6 @@ func _process(delta: float) -> void:
 
 
 
-func _on_stockprice_buy_price(i) -> void:
-	text = 'Current Price: ' +str(i)
+func _on_global_timer_timeout() -> void:
+	magicmeter += magic_rate
+	pass # Replace with function body.
