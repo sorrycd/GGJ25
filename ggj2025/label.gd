@@ -1,6 +1,6 @@
 extends Label
 
-@export var scroll_speed = 400.0  # Pixels per second
+@export var scroll_speed = 250.0  # Pixels per second
 @export var news_items = ["Local priest scries the orb, the results may shock you",
 
 "Gnomish influences in the monarchy source of concern to serfs",
