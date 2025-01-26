@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var button: Button = $CanvasLayer/Control/Button
+@onready var button: TextureButton = $CanvasLayer/Control/TextureButton
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
