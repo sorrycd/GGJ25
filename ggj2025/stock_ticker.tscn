@@ -33,7 +33,7 @@
 script = ExtResource("1_gfst1")
 
 [node name="Node2D" type="Node2D" parent="."]
-position = Vector2(346, 468)
+position = Vector2(434, 468)
 script = ExtResource("1_y8aqp")
 
 [node name="Desk and Computer" type="Sprite2D" parent="Node2D"]
@@ -43,26 +43,28 @@ texture = ExtResource("11_v25es")
 
 [node name="Buy" type="TextureButton" parent="Node2D"]
 z_index = 1
-offset_left = -267.5
-offset_top = 372.5
-offset_right = 32.5
-offset_bottom = 532.5
+offset_left = -318.5
+offset_top = 436.5
+offset_right = -18.5
+offset_bottom = 596.5
 rotation = -0.0468549
 scale = Vector2(0.69, 0.69)
 texture_normal = ExtResource("8_7h3fq")
 texture_pressed = ExtResource("9_lro7e")
 script = ExtResource("8_q8cm1")
+metadata/_edit_use_anchors_ = true
 
 [node name="Sell" type="TextureButton" parent="Node2D"]
 z_index = 1
-offset_left = 3.49997
-offset_top = 364.5
-offset_right = 303.5
-offset_bottom = 524.5
+offset_left = -47.5
+offset_top = 428.5
+offset_right = 252.5
+offset_bottom = 588.5
 rotation = 0.0164444
 scale = Vector2(0.69, 0.69)
 texture_normal = ExtResource("5_8lsr5")
 texture_pressed = ExtResource("6_hx4mo")
+metadata/_edit_use_anchors_ = true
 
 [node name="BG" type="Sprite2D" parent="Node2D"]
 modulate = Color(0.683077, 0.683077, 0.683077, 1)
@@ -72,15 +74,16 @@ scale = Vector2(0.546766, 0.546766)
 texture = ExtResource("9_y7lyk")
 
 [node name="Orb" type="TextureButton" parent="Node2D"]
-offset_left = -354.0
-offset_top = -461.0
-offset_right = 413.0
-offset_bottom = 306.0
+offset_left = -504.0
+offset_top = -391.0
+offset_right = 263.0
+offset_bottom = 376.0
 texture_normal = ExtResource("10_pdkph")
 texture_pressed = ExtResource("11_ynkuj")
 texture_hover = ExtResource("12_313vl")
 ignore_texture_size = true
 stretch_mode = 0
+metadata/_edit_use_anchors_ = true
 
 [node name="Newsbar" type="Sprite2D" parent="Node2D"]
 z_index = -2
@@ -89,7 +92,7 @@ scale = Vector2(0.901, 0.901)
 texture = ExtResource("13_l02t1")
 
 [node name="Stockbox" type="Sprite2D" parent="Node2D"]
-position = Vector2(15.5, 227.5)
+position = Vector2(-35.5, 291.5)
 scale = Vector2(0.711, 0.711)
 texture = ExtResource("14_ianje")
 
@@ -113,11 +116,12 @@ anchor_left = 0.128
 anchor_top = 0.019
 anchor_right = 0.882
 anchor_bottom = 0.764
-offset_left = 632.24
+offset_left = 720.24
 offset_top = 216.48
-offset_right = -585.44
+offset_right = -497.44
 offset_bottom = -498.12
 script = ExtResource("14_5iwa5")
+metadata/_edit_use_anchors_ = true
 
 [node name="Stock Remaining" type="Label" parent="Holdings/assetgraph"]
 layout_mode = 1
@@ -133,6 +137,7 @@ theme_override_fonts/font = ExtResource("12_62sbm")
 theme_override_font_sizes/font_size = 50
 text = "assets: "
 script = ExtResource("9_lhocw")
+metadata/_edit_use_anchors_ = true
 
 [node name="assetgraph2" type="Control" parent="Holdings"]
 z_index = 4
@@ -141,12 +146,13 @@ anchor_left = 0.128
 anchor_top = 0.019
 anchor_right = 0.882
 anchor_bottom = 0.764
-offset_left = 887.24
+offset_left = 975.24
 offset_top = 215.48
-offset_right = -330.44
+offset_right = -242.44
 offset_bottom = -499.12
 script = ExtResource("15_cnv4t")
 line_color = Color(0, 1, 0, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="Liquid" type="Label" parent="Holdings/assetgraph2"]
 layout_mode = 0
@@ -158,14 +164,17 @@ theme_override_fonts/font = ExtResource("12_62sbm")
 theme_override_font_sizes/font_size = 50
 text = "bank:"
 script = ExtResource("8_5i27d")
+metadata/_edit_use_anchors_ = true
 
 [node name="Magic" type="Node" parent="Holdings"]
 script = ExtResource("19_iy051")
 
 [node name="Stock Container" type="HBoxContainer" parent="."]
+offset_left = 88.0
 offset_top = -27.0
-offset_right = 109.0
+offset_right = 197.0
 offset_bottom = 13.0
+metadata/_edit_use_anchors_ = true
 
 [node name="stockprice" type="Node" parent="Stock Container"]
 script = ExtResource("5_mpw5s")
@@ -177,19 +186,20 @@ anchor_left = 0.128
 anchor_top = 0.019
 anchor_right = 0.882
 anchor_bottom = 0.764
-offset_left = 596.24
+offset_left = 684.24
 offset_top = 31.48
-offset_right = -14.4401
+offset_right = 73.5599
 offset_bottom = -224.12
 script = ExtResource("4_qnqhl")
 line_color = Color(0.845883, 0, 0.141189, 1)
 background_color = Color(0.0807833, 0.0807833, 0.0807833, 1)
 grid_color = Color(0.233926, 0.233925, 0.233925, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="Current Price" type="Label" parent="Stock Container/stockprice"]
-offset_left = 873.0
+offset_left = 961.0
 offset_top = 105.0
-offset_right = 1200.0
+offset_right = 1288.0
 offset_bottom = 176.0
 theme_override_colors/font_color = Color(0.847059, 0, 0.141176, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
@@ -198,17 +208,19 @@ theme_override_fonts/font = ExtResource("12_62sbm")
 theme_override_font_sizes/font_size = 70
 text = "Current Price"
 script = ExtResource("8_7o7v8")
+metadata/_edit_use_anchors_ = true
 
 [node name="ticker" type="Label" parent="."]
 modulate = Color(0, 0, 0, 1)
 z_index = -2
-offset_left = 1708.0
+offset_left = 1796.0
 offset_top = 605.0
-offset_right = 1709.0
+offset_right = 1797.0
 offset_bottom = 676.0
 theme_override_fonts/font = ExtResource("12_62sbm")
 theme_override_font_sizes/font_size = 60
 script = ExtResource("8_6o2cy")
+metadata/_edit_use_anchors_ = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("15_7cpim")
