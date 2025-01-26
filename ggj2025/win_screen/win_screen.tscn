@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dkknl1ewauf3c"]
+
+[ext_resource type="Script" path="res://Title_Screen/title_screen.gd" id="1_hqdfo"]
+[ext_resource type="AudioStream" uid="uid://s3uuu6gcue42" path="res://Sounds/bubble goblin fade.wav" id="2_qlnu0"]
+
+[node name="TitleScreen" type="Node2D"]
+script = ExtResource("1_hqdfo")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_qlnu0")
+autoplay = true
