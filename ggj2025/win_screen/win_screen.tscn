@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://dkknl1ewauf3c"]
+[gd_scene load_steps=4 format=3 uid="uid://dkknl1ewauf3c"]
 
 [ext_resource type="Script" path="res://Title_Screen/title_screen.gd" id="1_hqdfo"]
+[ext_resource type="Texture2D" uid="uid://c5cay4svreddc" path="res://win_screen/IWon.png" id="2_1yvc0"]
 [ext_resource type="AudioStream" uid="uid://s3uuu6gcue42" path="res://Sounds/bubble goblin fade.wav" id="2_qlnu0"]
 
 [node name="TitleScreen" type="Node2D"]
@@ -9,6 +10,9 @@ script = ExtResource("1_hqdfo")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(962, 542.5)
+scale = Vector2(1.01574, 1.01574)
+texture = ExtResource("2_1yvc0")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_qlnu0")
