@@ -6,6 +6,7 @@ var effects
 var stock = [price]
 @export var fluxlower = -10 # TODO adjust flux per stock
 @export var fluxupper = 10
+var popfactor = 1
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
@@ -21,10 +22,10 @@ signal bubblefactor
 func bubble():
 	var bubble_length = abs(marketflux())
 	bubblefactor.emit(bubble_length)
-	
+var bf = 1
 func _on_timer_timeout() -> void: #
 	var mf = marketflux()
-	price = abs(stock[-1]+mf+0)
+	price = abs((stock[-1]+mf)+bf)*popfactor
 	
 	buy_price.emit(price)
 	stock.append(price)
@@ -33,6 +34,7 @@ func _on_timer_timeout() -> void: #
 	if len(stock) > graph_length:
 		stock.pop_at(0)
 	market_changed.emit(stock)
+	popfactor = 1
 var mana = 4
 signal mana_charge
 func _on_orb_pressed() -> void:
@@ -57,10 +59,16 @@ var bubbleon = 0
 
 func _on_bubble_length_bubble_in_progress() -> void:
 	bubbleon = 1
+	bf = 10
 	print('bubble in progress!')
 	pass # Replace with function body.
 
 func _on_bubble_length_timeout() -> void:
 	print('pop alert!')
+	popfactor = 0
+	bf = 0
 	bubbleon = 0
+	print('price',price)
 	pass # Replace with function body.
+func unpop():
+	popfactor = 1
