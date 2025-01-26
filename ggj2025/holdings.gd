@@ -36,3 +36,11 @@ func _on_sell_button_pressed() -> void:
 		#print('StockPrice:',stockprice)
 		sell_asset_data.emit([stock_holdings,liquid]) # emits the players holdings
 	pass # Replace with function body.
+
+
+func _on_texture_button_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_texture_button_2_pressed() -> void:
+	pass # Replace with function body.
