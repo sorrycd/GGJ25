@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://b5f2v1y6eweyh"]
+[gd_scene load_steps=30 format=3 uid="uid://b5f2v1y6eweyh"]
 
 [ext_resource type="Script" path="res://Main.gd" id="1_gfst1"]
 [ext_resource type="Script" path="res://stock_ticker.gd" id="1_y8aqp"]
@@ -27,6 +27,7 @@
 [ext_resource type="AudioStream" uid="uid://cabfhdwtk43hd" path="res://Sounds/NU MIDDLE EASTERN DISCO final with fade.wav" id="15_7cpim"]
 [ext_resource type="Script" path="res://assetgraph_2.gd" id="15_cnv4t"]
 [ext_resource type="Texture2D" uid="uid://bt8ik04oo534g" path="res://Sprites/stickynote.png" id="15_fwc3k"]
+[ext_resource type="Texture2D" uid="uid://cttn84afu6eob" path="res://Sprites/reset.png" id="16_yteup"]
 [ext_resource type="Script" path="res://magic.gd" id="19_iy051"]
 
 [node name="Main" type="Node2D"]
@@ -74,10 +75,10 @@ scale = Vector2(0.546766, 0.546766)
 texture = ExtResource("9_y7lyk")
 
 [node name="Orb" type="TextureButton" parent="Node2D"]
-offset_left = -504.0
-offset_top = -391.0
-offset_right = 263.0
-offset_bottom = 376.0
+offset_left = -533.0
+offset_top = -435.0
+offset_right = 234.0
+offset_bottom = 332.0
 texture_normal = ExtResource("10_pdkph")
 texture_pressed = ExtResource("11_ynkuj")
 texture_hover = ExtResource("12_313vl")
@@ -93,13 +94,21 @@ texture = ExtResource("13_l02t1")
 
 [node name="Stockbox" type="Sprite2D" parent="Node2D"]
 position = Vector2(-35.5, 291.5)
+rotation = 0.00142682
 scale = Vector2(0.711, 0.711)
 texture = ExtResource("14_ianje")
 
-[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
+[node name="stickynote" type="Sprite2D" parent="Node2D"]
 position = Vector2(434, -386)
 rotation = 0.314078
 texture = ExtResource("15_fwc3k")
+
+[node name="reset" type="Sprite2D" parent="Node2D"]
+modulate = Color(1, 1, 1, 0.34902)
+position = Vector2(274, 117)
+rotation = 0.0701998
+scale = Vector2(0.52, 0.52)
+texture = ExtResource("16_yteup")
 
 [node name="GlobalTimer" type="Timer" parent="."]
 wait_time = 0.114
@@ -226,8 +235,8 @@ metadata/_edit_use_anchors_ = true
 stream = ExtResource("15_7cpim")
 autoplay = true
 
-[connection signal="pressed" from="Node2D/Buy" to="Holdings" method="_on_buy_button_pressed"]
 [connection signal="pressed" from="Node2D/Buy" to="Holdings" method="_on_texture_button_pressed"]
+[connection signal="pressed" from="Node2D/Buy" to="Holdings" method="_on_buy_button_pressed"]
 [connection signal="pressed" from="Node2D/Sell" to="Holdings" method="_on_texture_button_2_pressed"]
 [connection signal="pressed" from="Node2D/Sell" to="Holdings" method="_on_sell_button_pressed"]
 [connection signal="timeout" from="GlobalTimer" to="Holdings" method="_on_global_timer_timeout"]
@@ -239,8 +248,8 @@ autoplay = true
 [connection signal="sell_asset_data" from="Holdings" to="Holdings/assetgraph/Stock Remaining" method="_on_holdings_sell_asset_data"]
 [connection signal="sell_asset_data" from="Holdings" to="Holdings/assetgraph2" method="_on_holdings_sell_asset_data"]
 [connection signal="sell_asset_data" from="Holdings" to="Holdings/assetgraph2/Liquid" method="_on_holdings_sell_asset_data"]
-[connection signal="buy_price" from="Stock Container/stockprice" to="." method="_on_stockprice_buy_price"]
 [connection signal="buy_price" from="Stock Container/stockprice" to="." method="_on_stockprice_buy_price_buy_buttn"]
+[connection signal="buy_price" from="Stock Container/stockprice" to="." method="_on_stockprice_buy_price"]
 [connection signal="buy_price" from="Stock Container/stockprice" to="Stock Container/stockprice/Current Price" method="_on_stockprice_buy_price"]
 [connection signal="market_changed" from="Stock Container/stockprice" to="Holdings" method="_on_stockprice_market_changed"]
 [connection signal="market_changed" from="Stock Container/stockprice" to="Stock Container/stockprice/linegraph" method="_on_economy_market_changed"]
