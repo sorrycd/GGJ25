@@ -33,7 +33,7 @@ func _on_timer_timeout() -> void: #
 	if len(stock) > graph_length:
 		stock.pop_at(0)
 	market_changed.emit(stock)
-var mana = 0
+var mana = 4
 signal mana_charge
 func _on_orb_pressed() -> void:
 	print('debug')
@@ -51,4 +51,16 @@ func _on_mana_charge_timeout() -> void:
 		mana += 1
 		print('mana = ',mana)
 		mana_charge.emit(mana)
+	pass # Replace with function body.
+
+var bubbleon = 0
+
+func _on_bubble_length_bubble_in_progress() -> void:
+	bubbleon = 1
+	print('bubble in progress!')
+	pass # Replace with function body.
+
+func _on_bubble_length_timeout() -> void:
+	print('pop alert!')
+	bubbleon = 0
 	pass # Replace with function body.

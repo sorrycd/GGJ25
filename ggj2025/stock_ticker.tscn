@@ -154,6 +154,8 @@ text = "Mana: 0/4"
 script = ExtResource("18_mgfx0")
 
 [node name="Bubble length" type="Timer" parent="."]
+wait_time = 30.0
+one_shot = true
 script = ExtResource("25_ngpbs")
 
 [node name="Holdings" type="Node" parent="."]
@@ -275,8 +277,8 @@ autoplay = true
 
 [connection signal="pressed" from="Node2D/Buy" to="Holdings" method="_on_texture_button_pressed"]
 [connection signal="pressed" from="Node2D/Buy" to="Holdings" method="_on_buy_button_pressed"]
-[connection signal="pressed" from="Node2D/Sell" to="Holdings" method="_on_sell_button_pressed"]
 [connection signal="pressed" from="Node2D/Sell" to="Holdings" method="_on_texture_button_2_pressed"]
+[connection signal="pressed" from="Node2D/Sell" to="Holdings" method="_on_sell_button_pressed"]
 [connection signal="pressed" from="Node2D/Orb" to="." method="_on_orb_pressed"]
 [connection signal="pressed" from="Node2D/Orb" to="Stock Container/stockprice" method="_on_orb_pressed"]
 [connection signal="timeout" from="GlobalTimer" to="Holdings" method="_on_global_timer_timeout"]
@@ -285,6 +287,9 @@ autoplay = true
 [connection signal="timeout" from="GlobalTimer" to="Stock Container/stockprice" method="_on_timer_timeout"]
 [connection signal="timeout" from="ManaCharge" to="Holdings" method="_on_mana_charge_timeout"]
 [connection signal="timeout" from="ManaCharge" to="Stock Container/stockprice" method="_on_mana_charge_timeout"]
+[connection signal="bubble_in_progress" from="Bubble length" to="Stock Container/stockprice" method="_on_bubble_length_bubble_in_progress"]
+[connection signal="timeout" from="Bubble length" to="Holdings" method="_on_bubble_length_timeout"]
+[connection signal="timeout" from="Bubble length" to="Stock Container/stockprice" method="_on_bubble_length_timeout"]
 [connection signal="sell_asset_data" from="Holdings" to="Holdings/assetgraph" method="_on_holdings_sell_asset_data"]
 [connection signal="sell_asset_data" from="Holdings" to="Holdings/assetgraph/Stock Remaining" method="_on_holdings_sell_asset_data"]
 [connection signal="sell_asset_data" from="Holdings" to="Holdings/assetgraph2" method="_on_holdings_sell_asset_data"]

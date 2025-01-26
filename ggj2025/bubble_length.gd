@@ -10,8 +10,7 @@ func _process(delta: float) -> void:
 
 signal bubble_in_progress
 func _on_stockprice_bubblefactor(i) -> void:
-	wait_time = i
+	start(i*1)
 	print(wait_time)
 	bubble_in_progress.emit()
-	start()
 	pass # Replace with function body.

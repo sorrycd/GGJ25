@@ -78,5 +78,5 @@ func _on_holdings_sell_asset_data(i) -> void:
 
 func _on_global_timer_timeout() -> void:
 	add_data_point(holding_b)
-	print('holdingb',holding_b)
+	#print('holdingb',holding_b)
 	pass # Replace with function body.
