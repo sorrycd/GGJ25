@@ -97,12 +97,14 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.752
 anchor_bottom = 0.5
-offset_right = 3.03999
-offset_bottom = -14.0
-theme_override_colors/font_color = Color(0, 0, 1, 1)
+offset_left = -1.0
+offset_top = -34.0
+offset_right = 3.04001
+offset_bottom = -48.0
+theme_override_colors/font_color = Color(0.392157, 0.756863, 1, 1)
 theme_override_fonts/font = ExtResource("12_62sbm")
 theme_override_font_sizes/font_size = 30
-text = "stock remaining: "
+text = "assets: "
 script = ExtResource("9_lhocw")
 
 [node name="assetgraph2" type="Control" parent="Holdings"]
@@ -121,12 +123,13 @@ line_color = Color(0, 1, 0, 1)
 
 [node name="Liquid" type="Label" parent="Holdings/assetgraph2"]
 layout_mode = 0
-offset_right = 48.0
-offset_bottom = 33.0
+offset_top = -34.0
+offset_right = 54.0
+offset_bottom = -1.0
 theme_override_colors/font_color = Color(0, 1, 0, 1)
 theme_override_fonts/font = ExtResource("12_62sbm")
 theme_override_font_sizes/font_size = 30
-text = "liquid:"
+text = "bank:"
 script = ExtResource("8_5i27d")
 
 [node name="Magic" type="Node" parent="Holdings"]
@@ -147,10 +150,10 @@ anchor_left = 0.128
 anchor_top = 0.019
 anchor_right = 0.882
 anchor_bottom = 0.764
-offset_left = 596.499
+offset_left = 596.24
 offset_top = 35.48
-offset_right = 596.499
-offset_bottom = 35.48
+offset_right = 120.56
+offset_bottom = -136.12
 script = ExtResource("4_qnqhl")
 line_color = Color(0.845883, 0, 0.141189, 1)
 background_color = Color(0.0807833, 0.0807833, 0.0807833, 1)
@@ -182,10 +185,10 @@ script = ExtResource("8_6o2cy")
 stream = ExtResource("15_7cpim")
 autoplay = true
 
-[connection signal="pressed" from="Node2D/Buy" to="Holdings" method="_on_buy_button_pressed"]
 [connection signal="pressed" from="Node2D/Buy" to="Holdings" method="_on_texture_button_pressed"]
-[connection signal="pressed" from="Node2D/Sell" to="Holdings" method="_on_texture_button_2_pressed"]
+[connection signal="pressed" from="Node2D/Buy" to="Holdings" method="_on_buy_button_pressed"]
 [connection signal="pressed" from="Node2D/Sell" to="Holdings" method="_on_sell_button_pressed"]
+[connection signal="pressed" from="Node2D/Sell" to="Holdings" method="_on_texture_button_2_pressed"]
 [connection signal="timeout" from="GlobalTimer" to="Holdings" method="_on_global_timer_timeout"]
 [connection signal="timeout" from="GlobalTimer" to="Holdings/assetgraph" method="_on_global_timer_timeout"]
 [connection signal="timeout" from="GlobalTimer" to="Holdings/assetgraph2" method="_on_global_timer_timeout"]
@@ -195,8 +198,8 @@ autoplay = true
 [connection signal="sell_asset_data" from="Holdings" to="Holdings/assetgraph/Stock Remaining" method="_on_holdings_sell_asset_data"]
 [connection signal="sell_asset_data" from="Holdings" to="Holdings/assetgraph2" method="_on_holdings_sell_asset_data"]
 [connection signal="sell_asset_data" from="Holdings" to="Holdings/assetgraph2/Liquid" method="_on_holdings_sell_asset_data"]
-[connection signal="buy_price" from="Stock Container/stockprice" to="." method="_on_stockprice_buy_price_buy_buttn"]
 [connection signal="buy_price" from="Stock Container/stockprice" to="." method="_on_stockprice_buy_price"]
+[connection signal="buy_price" from="Stock Container/stockprice" to="." method="_on_stockprice_buy_price_buy_buttn"]
 [connection signal="buy_price" from="Stock Container/stockprice" to="Stock Container/stockprice/Current Price" method="_on_stockprice_buy_price"]
 [connection signal="market_changed" from="Stock Container/stockprice" to="Holdings" method="_on_stockprice_market_changed"]
 [connection signal="market_changed" from="Stock Container/stockprice" to="Stock Container/stockprice/linegraph" method="_on_economy_market_changed"]

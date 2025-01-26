@@ -13,5 +13,5 @@ func _process(delta: float) -> void:
 
 
 func _on_holdings_sell_asset_data(liquid) -> void:
-	text = 'liquid: ' + str(liquid[1])
+	text = 'bank: ' + str(liquid[1])
 	pass # Replace with function body.

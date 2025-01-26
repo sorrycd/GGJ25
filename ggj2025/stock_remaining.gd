@@ -12,5 +12,5 @@ func _process(delta: float) -> void:
 
 
 func _on_holdings_sell_asset_data(i) -> void:
-	text = 'held stock: '+str(i[0])
+	text = 'assets: '+str(i[0])
 	pass
