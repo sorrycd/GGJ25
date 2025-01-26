@@ -69,9 +69,6 @@ func _ready():
 	pass
 	# Populate with sample data
 
-		
-
-
 func _on_economy_market_changed(stock) -> void:
 	#for stock in stocks:
 		print('passed',stock)

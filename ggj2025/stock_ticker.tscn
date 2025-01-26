@@ -82,6 +82,11 @@ script = ExtResource("8_q8cm1")
 layout_mode = 2
 text = "SELL"
 
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+script = ExtResource("8_6o2cy")
+
 [connection signal="timeout" from="GlobalTimer" to="Holdings" method="_on_global_timer_timeout"]
 [connection signal="timeout" from="GlobalTimer" to="Stock Container/stockprice" method="_on_timer_timeout"]
 [connection signal="sell_asset_data" from="Holdings" to="Stock Container/stockprice/Liquid" method="_on_holdings_sell_asset_data"]
