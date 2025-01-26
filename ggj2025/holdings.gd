@@ -1,8 +1,8 @@
 extends Node
-@export var inheritance = 19 # starting value i
+@export var inheritance = 200 # starting value i
 var networth = 0
 var liquid = inheritance
-var stock_holdings = 100
+var stock_holdings = 5
 var stockprice = 0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

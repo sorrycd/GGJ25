@@ -34,7 +34,7 @@ func _on_timer_timeout() -> void: #
 	if len(stock) > graph_length:
 		stock.pop_at(0)
 	market_changed.emit(stock)
-	popfactor = 1
+	unpop()
 var mana = 0
 signal mana_charge
 func _on_orb_pressed() -> void:
@@ -56,19 +56,23 @@ func _on_mana_charge_timeout() -> void:
 	pass # Replace with function body.
 
 var bubbleon = 0
+signal bubblealerts
 
 func _on_bubble_length_bubble_in_progress() -> void:
 	bubbleon = 1
 	bf = 10
 	print('bubble in progress!')
+	bubblealerts.emit('bubble in progress')
 	pass # Replace with function body.
 
 func _on_bubble_length_timeout() -> void:
 	print('pop alert!')
+	bubblealerts.emit('Pop Alert!')
 	popfactor = 0
 	bf = 0
 	bubbleon = 0
 	print('price',price)
 	pass # Replace with function body.
 func unpop():
+	#bubblealerts.emit('')
 	popfactor = 1

@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://b5f2v1y6eweyh"]
+[gd_scene load_steps=37 format=3 uid="uid://b5f2v1y6eweyh"]
 
 [ext_resource type="Script" path="res://Main.gd" id="1_gfst1"]
 [ext_resource type="Script" path="res://stock_ticker.gd" id="1_y8aqp"]
@@ -35,6 +35,7 @@
 [ext_resource type="Script" path="res://manachargelabel.gd" id="18_mgfx0"]
 [ext_resource type="Script" path="res://hands.gd" id="18_tiyv5"]
 [ext_resource type="Script" path="res://bubble_length.gd" id="25_ngpbs"]
+[ext_resource type="Script" path="res://bubble_indicator.gd" id="34_6xqnb"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_gfst1")
@@ -57,6 +58,7 @@ script = ExtResource("4_r2e08")
 
 [node name="Buy" type="TextureButton" parent="Node2D/Control"]
 z_index = 1
+layout_mode = 0
 offset_left = -268.0
 offset_top = 446.0
 offset_right = 32.0
@@ -70,6 +72,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Sell" type="TextureButton" parent="Node2D/Control"]
 z_index = 1
+layout_mode = 0
 offset_left = -51.0
 offset_top = 428.5
 offset_right = 249.0
@@ -173,7 +176,7 @@ theme_override_colors/font_color = Color(0.759549, 0.000443958, 0.759544, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("12_62sbm")
 theme_override_font_sizes/font_size = 80
-text = "Mana: 0/1"
+text = "mana: 0/1"
 script = ExtResource("18_mgfx0")
 
 [node name="Bubble length" type="Timer" parent="."]
@@ -282,6 +285,25 @@ text = "Current Price"
 script = ExtResource("8_7o7v8")
 metadata/_edit_use_anchors_ = true
 
+[node name="Bubble indicator" type="Label" parent="Stock Container/stockprice"]
+z_index = 7
+z_as_relative = false
+anchors_preset = -1
+anchor_left = 0.491
+anchor_top = 0.474
+anchor_right = 0.491
+anchor_bottom = 0.474
+offset_left = -0.720032
+offset_top = 0.0799561
+offset_right = 803.28
+offset_bottom = 81.08
+theme_override_colors/font_color = Color(0, 1, 0.803922, 1)
+theme_override_fonts/font = ExtResource("12_62sbm")
+theme_override_font_sizes/font_size = 80
+text = "Bubble in Progress"
+horizontal_alignment = 1
+script = ExtResource("34_6xqnb")
+
 [node name="ticker" type="Label" parent="."]
 modulate = Color(0, 0, 0, 1)
 z_index = -2
@@ -298,12 +320,12 @@ metadata/_edit_use_anchors_ = true
 stream = ExtResource("15_7cpim")
 autoplay = true
 
+[connection signal="pressed" from="Node2D/Control/Buy" to="Node2D/Control" method="_on_buy_pressed"]
 [connection signal="pressed" from="Node2D/Control/Buy" to="Holdings" method="_on_texture_button_pressed"]
 [connection signal="pressed" from="Node2D/Control/Buy" to="Holdings" method="_on_buy_button_pressed"]
-[connection signal="pressed" from="Node2D/Control/Buy" to="Node2D/Control" method="_on_buy_pressed"]
-[connection signal="pressed" from="Node2D/Control/Sell" to="Holdings" method="_on_sell_button_pressed"]
-[connection signal="pressed" from="Node2D/Control/Sell" to="Holdings" method="_on_texture_button_2_pressed"]
 [connection signal="pressed" from="Node2D/Control/Sell" to="Node2D/Control" method="_on_sell_pressed"]
+[connection signal="pressed" from="Node2D/Control/Sell" to="Holdings" method="_on_texture_button_2_pressed"]
+[connection signal="pressed" from="Node2D/Control/Sell" to="Holdings" method="_on_sell_button_pressed"]
 [connection signal="pressed" from="Node2D/Orb" to="." method="_on_orb_pressed"]
 [connection signal="pressed" from="Node2D/Orb" to="Stock Container/stockprice" method="_on_orb_pressed"]
 [connection signal="timeout" from="GlobalTimer" to="Holdings" method="_on_global_timer_timeout"]
@@ -313,15 +335,18 @@ autoplay = true
 [connection signal="timeout" from="ManaCharge" to="Holdings" method="_on_mana_charge_timeout"]
 [connection signal="timeout" from="ManaCharge" to="Stock Container/stockprice" method="_on_mana_charge_timeout"]
 [connection signal="bubble_in_progress" from="Bubble length" to="Stock Container/stockprice" method="_on_bubble_length_bubble_in_progress"]
+[connection signal="timeout" from="Bubble length" to="ManaCharge/manachargelabel" method="_on_bubble_length_timeout"]
 [connection signal="timeout" from="Bubble length" to="Holdings" method="_on_bubble_length_timeout"]
 [connection signal="timeout" from="Bubble length" to="Stock Container/stockprice" method="_on_bubble_length_timeout"]
+[connection signal="timeout" from="Bubble length" to="Stock Container/stockprice/Bubble indicator" method="_on_bubble_length_timeout"]
 [connection signal="sell_asset_data" from="Holdings" to="Holdings/assetgraph" method="_on_holdings_sell_asset_data"]
 [connection signal="sell_asset_data" from="Holdings" to="Holdings/assetgraph/Stock Remaining" method="_on_holdings_sell_asset_data"]
 [connection signal="sell_asset_data" from="Holdings" to="Holdings/assetgraph2" method="_on_holdings_sell_asset_data"]
 [connection signal="sell_asset_data" from="Holdings" to="Holdings/assetgraph2/Liquid" method="_on_holdings_sell_asset_data"]
+[connection signal="bubblealerts" from="Stock Container/stockprice" to="Stock Container/stockprice/Bubble indicator" method="_on_stockprice_bubblealerts"]
 [connection signal="bubblefactor" from="Stock Container/stockprice" to="Bubble length" method="_on_stockprice_bubblefactor"]
-[connection signal="buy_price" from="Stock Container/stockprice" to="." method="_on_stockprice_buy_price_buy_buttn"]
 [connection signal="buy_price" from="Stock Container/stockprice" to="." method="_on_stockprice_buy_price"]
+[connection signal="buy_price" from="Stock Container/stockprice" to="." method="_on_stockprice_buy_price_buy_buttn"]
 [connection signal="buy_price" from="Stock Container/stockprice" to="Stock Container/stockprice/Current Price" method="_on_stockprice_buy_price"]
 [connection signal="mana_charge" from="Stock Container/stockprice" to="." method="_on_stockprice_mana_charge"]
 [connection signal="mana_charge" from="Stock Container/stockprice" to="ManaCharge/manachargelabel" method="_on_stockprice_mana_charge"]

@@ -11,10 +11,13 @@ func _process(delta: float) -> void:
 	pass
 
 
-func _on_stockprice_mana_charge(i) -> void:
-	text = 'mana:'+str(i)+"/1"
+
+
+func _on_stockprice_bubblealerts(i) -> void:
+	text = i
 	pass # Replace with function body.
 
 
 func _on_bubble_length_timeout() -> void:
+	text = "pop alert!"
 	pass # Replace with function body.
