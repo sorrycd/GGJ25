@@ -46,10 +46,10 @@ texture = ExtResource("11_v25es")
 
 [node name="Buy" type="TextureButton" parent="Node2D"]
 z_index = 1
-offset_left = -318.5
-offset_top = 436.5
-offset_right = -18.5
-offset_bottom = 596.5
+offset_left = -268.0
+offset_top = 446.0
+offset_right = 32.0
+offset_bottom = 606.0
 rotation = -0.0468549
 scale = Vector2(0.69, 0.69)
 texture_normal = ExtResource("8_7h3fq")
@@ -59,11 +59,11 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Sell" type="TextureButton" parent="Node2D"]
 z_index = 1
-offset_left = -47.5
+offset_left = -51.0
 offset_top = 428.5
-offset_right = 252.5
+offset_right = 249.0
 offset_bottom = 588.5
-rotation = 0.0164444
+rotation = 0.0832409
 scale = Vector2(0.69, 0.69)
 texture_normal = ExtResource("5_8lsr5")
 texture_pressed = ExtResource("6_hx4mo")
@@ -275,8 +275,8 @@ autoplay = true
 
 [connection signal="pressed" from="Node2D/Buy" to="Holdings" method="_on_texture_button_pressed"]
 [connection signal="pressed" from="Node2D/Buy" to="Holdings" method="_on_buy_button_pressed"]
-[connection signal="pressed" from="Node2D/Sell" to="Holdings" method="_on_texture_button_2_pressed"]
 [connection signal="pressed" from="Node2D/Sell" to="Holdings" method="_on_sell_button_pressed"]
+[connection signal="pressed" from="Node2D/Sell" to="Holdings" method="_on_texture_button_2_pressed"]
 [connection signal="pressed" from="Node2D/Orb" to="." method="_on_orb_pressed"]
 [connection signal="pressed" from="Node2D/Orb" to="Stock Container/stockprice" method="_on_orb_pressed"]
 [connection signal="timeout" from="GlobalTimer" to="Holdings" method="_on_global_timer_timeout"]
@@ -290,8 +290,8 @@ autoplay = true
 [connection signal="sell_asset_data" from="Holdings" to="Holdings/assetgraph2" method="_on_holdings_sell_asset_data"]
 [connection signal="sell_asset_data" from="Holdings" to="Holdings/assetgraph2/Liquid" method="_on_holdings_sell_asset_data"]
 [connection signal="bubblefactor" from="Stock Container/stockprice" to="Bubble length" method="_on_stockprice_bubblefactor"]
-[connection signal="buy_price" from="Stock Container/stockprice" to="." method="_on_stockprice_buy_price"]
 [connection signal="buy_price" from="Stock Container/stockprice" to="." method="_on_stockprice_buy_price_buy_buttn"]
+[connection signal="buy_price" from="Stock Container/stockprice" to="." method="_on_stockprice_buy_price"]
 [connection signal="buy_price" from="Stock Container/stockprice" to="Stock Container/stockprice/Current Price" method="_on_stockprice_buy_price"]
 [connection signal="mana_charge" from="Stock Container/stockprice" to="." method="_on_stockprice_mana_charge"]
 [connection signal="mana_charge" from="Stock Container/stockprice" to="ManaCharge/manachargelabel" method="_on_stockprice_mana_charge"]
