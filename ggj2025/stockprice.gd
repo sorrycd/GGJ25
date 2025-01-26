@@ -19,7 +19,7 @@ signal buy_price
 @export var graph_length = 24
 signal bubblefactor
 func bubble():
-	var bubble_length = abs(marketflux)
+	var bubble_length = abs(marketflux())
 	bubblefactor.emit(bubble_length)
 	
 func _on_timer_timeout() -> void: #
@@ -33,14 +33,19 @@ func _on_timer_timeout() -> void: #
 	if len(stock) > graph_length:
 		stock.pop_at(0)
 	market_changed.emit(stock)
-var magic = 0
-
-func _on_orb_pressed(magic) -> void:
-	print('debug')
-	pass # Replace with function body.
-
 var mana = 0
 signal mana_charge
+func _on_orb_pressed() -> void:
+	print('debug')
+	if mana == 4:
+		mana = 0
+		mana_charge.emit(mana)
+		
+		bubble()
+	pass # Replace with function body.
+
+
+
 func _on_mana_charge_timeout() -> void:
 	if mana <4:
 		mana += 1
