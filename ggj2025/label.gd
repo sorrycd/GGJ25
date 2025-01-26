@@ -98,7 +98,7 @@ func _ready():
 	# Initial setup
 	current_text = news_items[0]
 	text = current_text
-	text_width = size.x
+	text_width = size.x+550
 	
 	# Position text just off screen to the right
 	position.x = viewport_width
