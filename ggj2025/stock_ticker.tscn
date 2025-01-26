@@ -1,13 +1,15 @@
-[gd_scene load_steps=33 format=3 uid="uid://b5f2v1y6eweyh"]
+[gd_scene load_steps=36 format=3 uid="uid://b5f2v1y6eweyh"]
 
 [ext_resource type="Script" path="res://Main.gd" id="1_gfst1"]
 [ext_resource type="Script" path="res://stock_ticker.gd" id="1_y8aqp"]
 [ext_resource type="Script" path="res://holdings.gd" id="4_jqkva"]
 [ext_resource type="Script" path="res://line_graph.gd" id="4_qnqhl"]
+[ext_resource type="Script" path="res://control.gd" id="4_r2e08"]
 [ext_resource type="Texture2D" uid="uid://db64ld0solry6" path="res://Sprites/sell.png" id="5_8lsr5"]
 [ext_resource type="Script" path="res://timer.gd" id="5_d147g"]
 [ext_resource type="Script" path="res://stockprice.gd" id="5_mpw5s"]
 [ext_resource type="Texture2D" uid="uid://dqu72lbswepd0" path="res://Sprites/sell_pressed.png" id="6_hx4mo"]
+[ext_resource type="AudioStream" uid="uid://bgwwfghmcp7l2" path="res://Sounds/click1.wav" id="7_ldcyf"]
 [ext_resource type="Script" path="res://liquid.gd" id="8_5i27d"]
 [ext_resource type="Script" path="res://label.gd" id="8_6o2cy"]
 [ext_resource type="Texture2D" uid="uid://rtt2rkwrueka" path="res://Sprites/buy.png" id="8_7h3fq"]
@@ -16,6 +18,7 @@
 [ext_resource type="Script" path="res://stock_remaining.gd" id="9_lhocw"]
 [ext_resource type="Texture2D" uid="uid://dei2swcp471ck" path="res://Sprites/buy_pressed.png" id="9_lro7e"]
 [ext_resource type="Texture2D" uid="uid://dpbhgn8p5o7kp" path="res://Sprites/wallonly.png" id="9_y7lyk"]
+[ext_resource type="AudioStream" uid="uid://d16bkob2quti3" path="res://Sounds/click2.wav" id="10_gm2by"]
 [ext_resource type="Texture2D" uid="uid://cwnc5ytrnn888" path="res://Sprites/BOLL.png" id="10_pdkph"]
 [ext_resource type="Texture2D" uid="uid://b5ekb1bmydc3u" path="res://Sprites/verywide.png" id="11_v25es"]
 [ext_resource type="Texture2D" uid="uid://c3xl1chf73r00" path="res://Sprites/BOLLGLOW.png" id="11_ynkuj"]
@@ -45,7 +48,14 @@ position = Vector2(146.259, 47)
 scale = Vector2(0.5635, 0.5635)
 texture = ExtResource("11_v25es")
 
-[node name="Buy" type="TextureButton" parent="Node2D"]
+[node name="Control" type="Control" parent="Node2D"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("4_r2e08")
+
+[node name="Buy" type="TextureButton" parent="Node2D/Control"]
 z_index = 1
 offset_left = -268.0
 offset_top = 446.0
@@ -58,7 +68,7 @@ texture_pressed = ExtResource("9_lro7e")
 script = ExtResource("8_q8cm1")
 metadata/_edit_use_anchors_ = true
 
-[node name="Sell" type="TextureButton" parent="Node2D"]
+[node name="Sell" type="TextureButton" parent="Node2D/Control"]
 z_index = 1
 offset_left = -51.0
 offset_top = 428.5
@@ -69,6 +79,12 @@ scale = Vector2(0.69, 0.69)
 texture_normal = ExtResource("5_8lsr5")
 texture_pressed = ExtResource("6_hx4mo")
 metadata/_edit_use_anchors_ = true
+
+[node name="Click1" type="AudioStreamPlayer" parent="Node2D/Control"]
+stream = ExtResource("7_ldcyf")
+
+[node name="Click2" type="AudioStreamPlayer" parent="Node2D/Control"]
+stream = ExtResource("10_gm2by")
 
 [node name="BG" type="Sprite2D" parent="Node2D"]
 modulate = Color(0.683077, 0.683077, 0.683077, 1)
@@ -282,10 +298,12 @@ metadata/_edit_use_anchors_ = true
 stream = ExtResource("15_7cpim")
 autoplay = true
 
-[connection signal="pressed" from="Node2D/Buy" to="Holdings" method="_on_texture_button_pressed"]
-[connection signal="pressed" from="Node2D/Buy" to="Holdings" method="_on_buy_button_pressed"]
-[connection signal="pressed" from="Node2D/Sell" to="Holdings" method="_on_sell_button_pressed"]
-[connection signal="pressed" from="Node2D/Sell" to="Holdings" method="_on_texture_button_2_pressed"]
+[connection signal="pressed" from="Node2D/Control/Buy" to="Holdings" method="_on_texture_button_pressed"]
+[connection signal="pressed" from="Node2D/Control/Buy" to="Holdings" method="_on_buy_button_pressed"]
+[connection signal="pressed" from="Node2D/Control/Buy" to="Node2D/Control" method="_on_buy_pressed"]
+[connection signal="pressed" from="Node2D/Control/Sell" to="Holdings" method="_on_sell_button_pressed"]
+[connection signal="pressed" from="Node2D/Control/Sell" to="Holdings" method="_on_texture_button_2_pressed"]
+[connection signal="pressed" from="Node2D/Control/Sell" to="Node2D/Control" method="_on_sell_pressed"]
 [connection signal="pressed" from="Node2D/Orb" to="." method="_on_orb_pressed"]
 [connection signal="pressed" from="Node2D/Orb" to="Stock Container/stockprice" method="_on_orb_pressed"]
 [connection signal="timeout" from="GlobalTimer" to="Holdings" method="_on_global_timer_timeout"]
