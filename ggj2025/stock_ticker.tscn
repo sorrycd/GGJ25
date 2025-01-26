@@ -27,29 +27,29 @@ script = ExtResource("1_gfst1")
 position = Vector2(346, 468)
 script = ExtResource("1_y8aqp")
 
-[node name="Verywide" type="Sprite2D" parent="Node2D"]
+[node name="Desk and Computer" type="Sprite2D" parent="Node2D"]
 position = Vector2(146.259, 47)
 scale = Vector2(0.5635, 0.5635)
 texture = ExtResource("11_v25es")
 
-[node name="TextureButton" type="TextureButton" parent="Node2D"]
+[node name="Buy" type="TextureButton" parent="Node2D"]
 offset_left = 9.0
 offset_top = 335.0
 offset_right = 309.0
 offset_bottom = 495.0
-texture_normal = ExtResource("5_8lsr5")
-texture_pressed = ExtResource("6_hx4mo")
+texture_normal = ExtResource("8_7h3fq")
+texture_pressed = ExtResource("9_lro7e")
 script = ExtResource("8_q8cm1")
 
-[node name="TextureButton2" type="TextureButton" parent="Node2D"]
+[node name="Sell" type="TextureButton" parent="Node2D"]
 offset_left = -307.0
 offset_top = 336.0
 offset_right = -7.0
 offset_bottom = 496.0
-texture_normal = ExtResource("8_7h3fq")
-texture_pressed = ExtResource("9_lro7e")
+texture_normal = ExtResource("5_8lsr5")
+texture_pressed = ExtResource("6_hx4mo")
 
-[node name="Verywide2" type="Sprite2D" parent="Node2D"]
+[node name="BG" type="Sprite2D" parent="Node2D"]
 modulate = Color(0.683077, 0.683077, 0.683077, 1)
 z_index = -1
 position = Vector2(159, 37)
@@ -127,10 +127,10 @@ script = ExtResource("8_6o2cy")
 stream = ExtResource("15_7cpim")
 autoplay = true
 
-[connection signal="pressed" from="Node2D/TextureButton" to="Holdings" method="_on_texture_button_pressed"]
-[connection signal="pressed" from="Node2D/TextureButton" to="Holdings" method="_on_buy_button_pressed"]
-[connection signal="pressed" from="Node2D/TextureButton2" to="Holdings" method="_on_texture_button_2_pressed"]
-[connection signal="pressed" from="Node2D/TextureButton2" to="Holdings" method="_on_sell_button_pressed"]
+[connection signal="pressed" from="Node2D/Buy" to="Holdings" method="_on_texture_button_pressed"]
+[connection signal="pressed" from="Node2D/Buy" to="Holdings" method="_on_buy_button_pressed"]
+[connection signal="pressed" from="Node2D/Sell" to="Holdings" method="_on_texture_button_2_pressed"]
+[connection signal="pressed" from="Node2D/Sell" to="Holdings" method="_on_sell_button_pressed"]
 [connection signal="timeout" from="GlobalTimer" to="Holdings" method="_on_global_timer_timeout"]
 [connection signal="timeout" from="GlobalTimer" to="Stock Container/stockprice" method="_on_timer_timeout"]
 [connection signal="sell_asset_data" from="Holdings" to="Stock Container/stockprice/Liquid" method="_on_holdings_sell_asset_data"]
