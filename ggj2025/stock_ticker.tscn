@@ -113,9 +113,18 @@ scale = Vector2(0.52, 0.52)
 texture = ExtResource("16_yteup")
 
 [node name="Hands" type="Sprite2D" parent="Node2D"]
-position = Vector2(899, 626)
-rotation = -0.139331
+z_index = 3
+position = Vector2(872, 653)
+rotation = -0.0861263
 scale = Vector2(0.312091, 0.312091)
+texture = ExtResource("17_60oav")
+
+[node name="Hands2" type="Sprite2D" parent="Node2D"]
+modulate = Color(0.201527, 0.201527, 0.201527, 0.211765)
+z_index = 1
+position = Vector2(902, 671)
+rotation = -0.250534
+scale = Vector2(0.257101, 0.257101)
 texture = ExtResource("17_60oav")
 
 [node name="GlobalTimer" type="Timer" parent="."]
