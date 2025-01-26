@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://b5f2v1y6eweyh"]
+[gd_scene load_steps=26 format=3 uid="uid://b5f2v1y6eweyh"]
 
 [ext_resource type="Script" path="res://Main.gd" id="1_gfst1"]
 [ext_resource type="Script" path="res://stock_ticker.gd" id="1_y8aqp"]
@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://b5ekb1bmydc3u" path="res://Sprites/verywide.png" id="11_v25es"]
 [ext_resource type="Texture2D" uid="uid://c3xl1chf73r00" path="res://Sprites/BOLLGLOW.png" id="11_ynkuj"]
 [ext_resource type="FontFile" uid="uid://cl18k31ybkspt" path="res://Fonts/Jacquard24-Regular.ttf" id="12_62sbm"]
+[ext_resource type="Texture2D" uid="uid://dv1l2hiys8bd1" path="res://Sprites/BOLLHOVER.png" id="12_313vl"]
 [ext_resource type="Script" path="res://assetgraph.gd" id="14_5iwa5"]
 [ext_resource type="AudioStream" uid="uid://cabfhdwtk43hd" path="res://Sounds/NU MIDDLE EASTERN DISCO final with fade.wav" id="15_7cpim"]
 [ext_resource type="Script" path="res://assetgraph_2.gd" id="15_cnv4t"]
@@ -68,6 +69,7 @@ offset_right = 381.0
 offset_bottom = 364.0
 texture_normal = ExtResource("10_pdkph")
 texture_pressed = ExtResource("11_ynkuj")
+texture_hover = ExtResource("12_313vl")
 ignore_texture_size = true
 stretch_mode = 0
 
@@ -198,8 +200,8 @@ autoplay = true
 [connection signal="sell_asset_data" from="Holdings" to="Holdings/assetgraph/Stock Remaining" method="_on_holdings_sell_asset_data"]
 [connection signal="sell_asset_data" from="Holdings" to="Holdings/assetgraph2" method="_on_holdings_sell_asset_data"]
 [connection signal="sell_asset_data" from="Holdings" to="Holdings/assetgraph2/Liquid" method="_on_holdings_sell_asset_data"]
-[connection signal="buy_price" from="Stock Container/stockprice" to="." method="_on_stockprice_buy_price"]
 [connection signal="buy_price" from="Stock Container/stockprice" to="." method="_on_stockprice_buy_price_buy_buttn"]
+[connection signal="buy_price" from="Stock Container/stockprice" to="." method="_on_stockprice_buy_price"]
 [connection signal="buy_price" from="Stock Container/stockprice" to="Stock Container/stockprice/Current Price" method="_on_stockprice_buy_price"]
 [connection signal="market_changed" from="Stock Container/stockprice" to="Holdings" method="_on_stockprice_market_changed"]
 [connection signal="market_changed" from="Stock Container/stockprice" to="Stock Container/stockprice/linegraph" method="_on_economy_market_changed"]
