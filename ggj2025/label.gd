@@ -94,7 +94,7 @@ var viewport_width = 0
 
 func _ready():
 	viewport_width = get_viewport_rect().size.x
-	
+	news_items.shuffle()
 	# Initial setup
 	current_text = news_items[0]
 	text = current_text
