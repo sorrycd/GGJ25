@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b5f2v1y6eweyh"]
+[gd_scene load_steps=13 format=3 uid="uid://b5f2v1y6eweyh"]
 
 [ext_resource type="Script" path="res://Main.gd" id="1_gfst1"]
 [ext_resource type="Script" path="res://stock_ticker.gd" id="1_y8aqp"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://stockprice.gd" id="5_mpw5s"]
 [ext_resource type="Script" path="res://liquid.gd" id="8_5i27d"]
 [ext_resource type="Script" path="res://label.gd" id="8_6o2cy"]
+[ext_resource type="Script" path="res://current_price.gd" id="8_7o7v8"]
 [ext_resource type="Script" path="res://BuyButton.gd" id="8_q8cm1"]
 [ext_resource type="Script" path="res://stock_remaining.gd" id="9_lhocw"]
 [ext_resource type="Texture2D" uid="uid://b5ekb1bmydc3u" path="res://Sprites/verywide.png" id="11_v25es"]
@@ -60,7 +61,7 @@ offset_left = 1528.0
 offset_top = 204.0
 offset_right = 1587.0
 offset_bottom = 227.0
-script = ExtResource("8_6o2cy")
+script = ExtResource("8_7o7v8")
 
 [node name="Liquid" type="Label" parent="Stock Container/stockprice"]
 offset_left = 3.0
@@ -87,17 +88,17 @@ script = ExtResource("8_q8cm1")
 layout_mode = 2
 text = "SELL"
 
-[node name="Label" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
+[node name="ticker" type="Label" parent="Stock Container"]
+z_index = -2
+layout_mode = 2
 script = ExtResource("8_6o2cy")
 
 [connection signal="timeout" from="GlobalTimer" to="Holdings" method="_on_global_timer_timeout"]
 [connection signal="timeout" from="GlobalTimer" to="Stock Container/stockprice" method="_on_timer_timeout"]
 [connection signal="sell_asset_data" from="Holdings" to="Stock Container/stockprice/Liquid" method="_on_holdings_sell_asset_data"]
 [connection signal="sell_asset_data" from="Holdings" to="Stock Container/stockprice/Stock Remaining" method="_on_holdings_sell_asset_data"]
-[connection signal="buy_price" from="Stock Container/stockprice" to="." method="_on_stockprice_buy_price_buy_buttn"]
 [connection signal="buy_price" from="Stock Container/stockprice" to="." method="_on_stockprice_buy_price"]
+[connection signal="buy_price" from="Stock Container/stockprice" to="." method="_on_stockprice_buy_price_buy_buttn"]
 [connection signal="buy_price" from="Stock Container/stockprice" to="Stock Container/stockprice/Current Price" method="_on_stockprice_buy_price"]
 [connection signal="buy_price" from="Stock Container/stockprice" to="Stock Container/BuyButton" method="_on_stockprice_buy_price"]
 [connection signal="market_changed" from="Stock Container/stockprice" to="Holdings" method="_on_stockprice_market_changed"]
