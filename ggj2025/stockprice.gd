@@ -35,11 +35,11 @@ func _on_timer_timeout() -> void: #
 		stock.pop_at(0)
 	market_changed.emit(stock)
 	popfactor = 1
-var mana = 4
+var mana = 0
 signal mana_charge
 func _on_orb_pressed() -> void:
-	print('debug')
-	if mana == 4:
+	#print('debug')
+	if mana == 1:
 		mana = 0
 		mana_charge.emit(mana)
 		
@@ -49,7 +49,7 @@ func _on_orb_pressed() -> void:
 
 
 func _on_mana_charge_timeout() -> void:
-	if mana <4:
+	if mana <1:
 		mana += 1
 		print('mana = ',mana)
 		mana_charge.emit(mana)

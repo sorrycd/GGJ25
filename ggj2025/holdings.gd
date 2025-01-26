@@ -34,6 +34,8 @@ func _on_sell_button_pressed() -> void:
 		liquid += stockprice
 		#print('StockPrice:',stockprice)
 		sell_asset_data.emit([stock_holdings,liquid]) # emits the players holdings
+	if liquid > 5000:
+		pass
 	pass # Replace with function body.
 
 

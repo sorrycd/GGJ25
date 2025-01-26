@@ -12,5 +12,5 @@ func _process(delta: float) -> void:
 
 
 func _on_stockprice_mana_charge(i) -> void:
-	text = 'mana:'+str(i)+"/4"
+	text = 'mana:'+str(i)+"/1"
 	pass # Replace with function body.

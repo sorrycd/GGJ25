@@ -140,7 +140,7 @@ autostart = true
 script = ExtResource("5_d147g")
 
 [node name="ManaCharge" type="Timer" parent="."]
-wait_time = 30.0
+wait_time = 10.0
 autostart = true
 
 [node name="manachargelabel" type="Label" parent="ManaCharge"]
@@ -157,7 +157,7 @@ theme_override_colors/font_color = Color(0.759549, 0.000443958, 0.759544, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("12_62sbm")
 theme_override_font_sizes/font_size = 80
-text = "Mana: 0/4"
+text = "Mana: 0/1"
 script = ExtResource("18_mgfx0")
 
 [node name="Bubble length" type="Timer" parent="."]
