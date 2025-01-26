@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b5f2v1y6eweyh"]
+[gd_scene load_steps=12 format=3 uid="uid://b5f2v1y6eweyh"]
 
 [ext_resource type="Script" path="res://Main.gd" id="1_gfst1"]
 [ext_resource type="Script" path="res://stock_ticker.gd" id="1_y8aqp"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://label.gd" id="8_6o2cy"]
 [ext_resource type="Script" path="res://BuyButton.gd" id="8_q8cm1"]
 [ext_resource type="Script" path="res://stock_remaining.gd" id="9_lhocw"]
+[ext_resource type="Texture2D" uid="uid://b5ekb1bmydc3u" path="res://Sprites/verywide.png" id="11_v25es"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_gfst1")
@@ -18,7 +19,10 @@ script = ExtResource("1_gfst1")
 position = Vector2(346, 495)
 script = ExtResource("1_y8aqp")
 
-[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
+[node name="Verywide" type="Sprite2D" parent="Node2D"]
+position = Vector2(90, 27)
+scale = Vector2(0.5635, 0.5635)
+texture = ExtResource("11_v25es")
 
 [node name="GlobalTimer" type="Timer" parent="."]
 wait_time = 0.114
@@ -36,25 +40,26 @@ offset_bottom = 40.0
 script = ExtResource("5_mpw5s")
 
 [node name="linegraph" type="Control" parent="Stock Container/stockprice"]
+z_index = -2
 layout_mode = 3
 anchor_left = 0.128
 anchor_top = 0.019
 anchor_right = 0.882
 anchor_bottom = 0.764
-offset_left = 0.543991
-offset_top = -0.312001
-offset_right = -0.0640259
-offset_bottom = -0.072052
+offset_left = 542.24
+offset_top = 77.48
+offset_right = -76.4401
+offset_bottom = -171.12
 script = ExtResource("4_qnqhl")
 line_color = Color(0.78462, 0.262849, 0.452135, 1)
-background_color = Color(0, 0, 0, 1)
+background_color = Color(0.162066, 0.162066, 0.162066, 1)
 grid_color = Color(0.277528, 0.277528, 0.277528, 1)
 
 [node name="Current Price" type="Label" parent="Stock Container/stockprice"]
-offset_left = 92.0
-offset_top = 8.0
-offset_right = 151.0
-offset_bottom = 31.0
+offset_left = 1528.0
+offset_top = 204.0
+offset_right = 1587.0
+offset_bottom = 227.0
 script = ExtResource("8_6o2cy")
 
 [node name="Liquid" type="Label" parent="Stock Container/stockprice"]
