@@ -10,4 +10,4 @@ func _on_mouse_exited():
 	get_tree().tweens.clear()  # Clear all active tweens affecting this node
 
 func wobble_button():
-	# Reset rotation
+	pass
