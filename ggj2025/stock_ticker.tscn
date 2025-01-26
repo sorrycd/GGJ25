@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b5f2v1y6eweyh"]
+[gd_scene load_steps=14 format=3 uid="uid://b5f2v1y6eweyh"]
 
 [ext_resource type="Script" path="res://Main.gd" id="1_gfst1"]
 [ext_resource type="Script" path="res://stock_ticker.gd" id="1_y8aqp"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" path="res://BuyButton.gd" id="8_q8cm1"]
 [ext_resource type="Script" path="res://stock_remaining.gd" id="9_lhocw"]
 [ext_resource type="Texture2D" uid="uid://b5ekb1bmydc3u" path="res://Sprites/verywide.png" id="11_v25es"]
+[ext_resource type="FontFile" uid="uid://cl18k31ybkspt" path="res://Fonts/Jacquard24-Regular.ttf" id="12_62sbm"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_gfst1")
@@ -88,9 +89,14 @@ script = ExtResource("8_q8cm1")
 layout_mode = 2
 text = "SELL"
 
-[node name="ticker" type="Label" parent="Stock Container"]
-z_index = -2
-layout_mode = 2
+[node name="ticker" type="Label" parent="."]
+z_index = -1
+offset_left = 1648.0
+offset_top = 126.0
+offset_right = 1649.0
+offset_bottom = 197.0
+theme_override_fonts/font = ExtResource("12_62sbm")
+theme_override_font_sizes/font_size = 60
 script = ExtResource("8_6o2cy")
 
 [connection signal="timeout" from="GlobalTimer" to="Holdings" method="_on_global_timer_timeout"]
