@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://b5f2v1y6eweyh"]
+[gd_scene load_steps=22 format=3 uid="uid://b5f2v1y6eweyh"]
 
 [ext_resource type="Script" path="res://Main.gd" id="1_gfst1"]
 [ext_resource type="Script" path="res://stock_ticker.gd" id="1_y8aqp"]
@@ -16,7 +16,9 @@
 [ext_resource type="Script" path="res://stock_remaining.gd" id="9_lhocw"]
 [ext_resource type="Texture2D" uid="uid://dei2swcp471ck" path="res://Sprites/buy_pressed.png" id="9_lro7e"]
 [ext_resource type="Texture2D" uid="uid://dpbhgn8p5o7kp" path="res://Sprites/wallonly.png" id="9_y7lyk"]
+[ext_resource type="Texture2D" uid="uid://cwnc5ytrnn888" path="res://Sprites/BOLL.png" id="10_pdkph"]
 [ext_resource type="Texture2D" uid="uid://b5ekb1bmydc3u" path="res://Sprites/verywide.png" id="11_v25es"]
+[ext_resource type="Texture2D" uid="uid://c3xl1chf73r00" path="res://Sprites/BOLLGLOW.png" id="11_ynkuj"]
 [ext_resource type="FontFile" uid="uid://cl18k31ybkspt" path="res://Fonts/Jacquard24-Regular.ttf" id="12_62sbm"]
 [ext_resource type="AudioStream" uid="uid://cabfhdwtk43hd" path="res://Sounds/NU MIDDLE EASTERN DISCO final with fade.wav" id="15_7cpim"]
 
@@ -55,6 +57,16 @@ z_index = -1
 position = Vector2(159, 37)
 scale = Vector2(0.546766, 0.546766)
 texture = ExtResource("9_y7lyk")
+
+[node name="TextureButton" type="TextureButton" parent="Node2D"]
+offset_left = -386.0
+offset_top = -403.0
+offset_right = 381.0
+offset_bottom = 364.0
+texture_normal = ExtResource("10_pdkph")
+texture_pressed = ExtResource("11_ynkuj")
+ignore_texture_size = true
+stretch_mode = 0
 
 [node name="GlobalTimer" type="Timer" parent="."]
 wait_time = 0.114
