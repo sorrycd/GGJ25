@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://beerr2v55sfym"]
+[gd_scene load_steps=5 format=3 uid="uid://beerr2v55sfym"]
 
 [ext_resource type="Script" path="res://Title_Screen/title_screen.gd" id="1_1ac22"]
+[ext_resource type="Texture2D" uid="uid://cc5gnbd1g07bk" path="res://title_screen/start.png" id="2_3h4ge"]
+[ext_resource type="Texture2D" uid="uid://dos4p8mxyvbow" path="res://title_screen/start_pressed.png" id="3_us71e"]
+[ext_resource type="Script" path="res://title_screen/texture_button.gd" id="4_b8eb0"]
 
 [node name="TitleScreen" type="Node2D"]
 script = ExtResource("1_1ac22")
@@ -15,22 +18,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 0.462745)
-
-[node name="Button" type="Button" parent="CanvasLayer/Control"]
+[node name="TextureButton" type="TextureButton" parent="CanvasLayer/Control"]
 layout_mode = 0
-offset_left = 203.0
-offset_top = 111.0
-offset_right = 299.0
-offset_bottom = 142.0
-text = "Start Game"
+offset_left = 452.0
+offset_top = 327.0
+offset_right = 672.0
+offset_bottom = 437.0
+texture_normal = ExtResource("2_3h4ge")
+texture_pressed = ExtResource("3_us71e")
+script = ExtResource("4_b8eb0")
 
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
 position = Vector2(251, 90)
@@ -40,4 +36,4 @@ scale = Vector2(0.2, 0.2)
 volume_db = -2.0
 autoplay = true
 
-[connection signal="pressed" from="CanvasLayer/Control/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/TextureButton" to="." method="_on_texture_button_pressed"]
