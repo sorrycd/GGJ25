@@ -24,7 +24,7 @@
 script = ExtResource("1_gfst1")
 
 [node name="Node2D" type="Node2D" parent="."]
-position = Vector2(346, 495)
+position = Vector2(346, 468)
 script = ExtResource("1_y8aqp")
 
 [node name="Verywide" type="Sprite2D" parent="Node2D"]
@@ -65,8 +65,9 @@ script = ExtResource("5_d147g")
 script = ExtResource("4_jqkva")
 
 [node name="Stock Container" type="HBoxContainer" parent="."]
+offset_top = -27.0
 offset_right = 109.0
-offset_bottom = 40.0
+offset_bottom = 13.0
 
 [node name="stockprice" type="Node" parent="Stock Container"]
 script = ExtResource("5_mpw5s")
@@ -79,9 +80,9 @@ anchor_top = 0.019
 anchor_right = 0.882
 anchor_bottom = 0.764
 offset_left = 596.499
-offset_top = 62.48
+offset_top = 35.48
 offset_right = -9.18115
-offset_bottom = -108.12
+offset_bottom = -135.12
 script = ExtResource("4_qnqhl")
 line_color = Color(0.78462, 0.262849, 0.452135, 1)
 background_color = Color(0.162066, 0.162066, 0.162066, 1)
@@ -89,35 +90,35 @@ grid_color = Color(0.277528, 0.277528, 0.277528, 1)
 
 [node name="Current Price" type="Label" parent="Stock Container/stockprice"]
 offset_left = 1528.0
-offset_top = 204.0
+offset_top = 177.0
 offset_right = 1587.0
-offset_bottom = 227.0
+offset_bottom = 248.0
 theme_override_fonts/font = ExtResource("12_62sbm")
 theme_override_font_sizes/font_size = 70
 script = ExtResource("8_7o7v8")
 
 [node name="Liquid" type="Label" parent="Stock Container/stockprice"]
 offset_left = 3.0
-offset_top = 47.0
-offset_right = 40.0
-offset_bottom = 80.0
+offset_top = 20.0
+offset_right = 51.0
+offset_bottom = 53.0
 text = "liquid:"
 script = ExtResource("8_5i27d")
 
 [node name="Stock Remaining" type="Label" parent="Stock Container/stockprice"]
 offset_left = 3.0
-offset_top = 72.0
+offset_top = 45.0
 offset_right = 136.0
-offset_bottom = 95.0
+offset_bottom = 68.0
 text = "stock remaining: "
 script = ExtResource("9_lhocw")
 
 [node name="ticker" type="Label" parent="."]
 z_index = -2
 offset_left = 1708.0
-offset_top = 132.0
+offset_top = 105.0
 offset_right = 1709.0
-offset_bottom = 203.0
+offset_bottom = 176.0
 theme_override_fonts/font = ExtResource("12_62sbm")
 theme_override_font_sizes/font_size = 60
 script = ExtResource("8_6o2cy")
