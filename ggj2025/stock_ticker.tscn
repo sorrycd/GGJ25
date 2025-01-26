@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://b5f2v1y6eweyh"]
+[gd_scene load_steps=32 format=3 uid="uid://b5f2v1y6eweyh"]
 
 [ext_resource type="Script" path="res://Main.gd" id="1_gfst1"]
 [ext_resource type="Script" path="res://stock_ticker.gd" id="1_y8aqp"]
@@ -28,6 +28,7 @@
 [ext_resource type="Script" path="res://assetgraph_2.gd" id="15_cnv4t"]
 [ext_resource type="Texture2D" uid="uid://bt8ik04oo534g" path="res://Sprites/stickynote.png" id="15_fwc3k"]
 [ext_resource type="Texture2D" uid="uid://cttn84afu6eob" path="res://Sprites/reset.png" id="16_yteup"]
+[ext_resource type="Texture2D" uid="uid://c3qmfnqapoh5v" path="res://Sprites/Hands.png" id="17_60oav"]
 [ext_resource type="Script" path="res://manachargelabel.gd" id="18_mgfx0"]
 [ext_resource type="Script" path="res://bubble_length.gd" id="25_ngpbs"]
 
@@ -110,6 +111,12 @@ position = Vector2(274, 117)
 rotation = 0.0701998
 scale = Vector2(0.52, 0.52)
 texture = ExtResource("16_yteup")
+
+[node name="Hands" type="Sprite2D" parent="Node2D"]
+position = Vector2(899, 626)
+rotation = -0.139331
+scale = Vector2(0.312091, 0.312091)
+texture = ExtResource("17_60oav")
 
 [node name="GlobalTimer" type="Timer" parent="."]
 wait_time = 0.114
