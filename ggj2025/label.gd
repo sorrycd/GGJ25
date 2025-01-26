@@ -1,6 +1,6 @@
 extends Label
 
-@export var scroll_speed = 100.0  # Pixels per second
+@export var scroll_speed = 400.0  # Pixels per second
 @export var news_items = ["Local priest scries the orb, the results may shock you",
 
 "Gnomish influences in the monarchy source of concern to serfs",
@@ -98,15 +98,14 @@ func _ready():
 	# Initial setup
 	current_text = news_items[0]
 	text = current_text
-	text_width = size.x+550
+	text_width = size.x
 	
 	# Position text just off screen to the right
 	position.x = viewport_width
-
+	text_width = size.x	
 func _process(delta):
 	# Move text left
 	position.x -= scroll_speed * delta
-	
 	# Reset text when it moves completely off screen
 	if position.x < -text_width:
 		position.x = viewport_width

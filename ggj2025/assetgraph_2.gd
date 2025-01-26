@@ -71,7 +71,7 @@ func _ready():
 var holding_a = 0
 var holding_b = 0
 func _on_holdings_sell_asset_data(i) -> void:
-	print('IIIIIIIIIIIIIIIIIIIIIIIIIIII',i)
+	#print('IIIIIIIIIIIIIIIIIIIIIIIIIIII',i)
 	holding_b = i[1]
 
 
