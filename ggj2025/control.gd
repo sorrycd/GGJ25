@@ -18,3 +18,9 @@ func _on_buy_pressed() -> void:
 func _on_sell_pressed() -> void:
 	$Click2.play()
 	pass # Replace with function body.
+	
+
+
+func _on_orb_pressed() -> void:
+	$Magic.play()
+	pass # Replace with function body.
