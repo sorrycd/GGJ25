@@ -17,6 +17,11 @@ func marketflux(): # calling this function generates a random number
 signal market_changed
 signal buy_price
 @export var graph_length = 24
+signal bubblefactor
+func bubble():
+	var bubble_length = abs(marketflux)
+	bubblefactor.emit(bubble_length)
+	
 func _on_timer_timeout() -> void: #
 	var mf = marketflux()
 	price = abs(stock[-1]+mf+0)
@@ -28,4 +33,17 @@ func _on_timer_timeout() -> void: #
 	if len(stock) > graph_length:
 		stock.pop_at(0)
 	market_changed.emit(stock)
-	
+var magic = 0
+
+func _on_orb_pressed(magic) -> void:
+	print('debug')
+	pass # Replace with function body.
+
+var mana = 0
+signal mana_charge
+func _on_mana_charge_timeout() -> void:
+	if mana <4:
+		mana += 1
+		print('mana = ',mana)
+		mana_charge.emit(mana)
+	pass # Replace with function body.

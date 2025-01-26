@@ -28,7 +28,6 @@ func _on_buy_button_pressed() -> void:
 		sell_asset_data.emit([stock_holdings,liquid]) #emits the players holdings
 	pass # Replace with function body.
 
-
 func _on_sell_button_pressed() -> void:
 	if stock_holdings > 0:
 		stock_holdings -=1
