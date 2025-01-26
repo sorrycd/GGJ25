@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://b5f2v1y6eweyh"]
+[gd_scene load_steps=29 format=3 uid="uid://b5f2v1y6eweyh"]
 
 [ext_resource type="Script" path="res://Main.gd" id="1_gfst1"]
 [ext_resource type="Script" path="res://stock_ticker.gd" id="1_y8aqp"]
@@ -26,6 +26,7 @@
 [ext_resource type="Texture2D" uid="uid://c6vkarvsvs71s" path="res://Sprites/stockbox.png" id="14_ianje"]
 [ext_resource type="AudioStream" uid="uid://cabfhdwtk43hd" path="res://Sounds/NU MIDDLE EASTERN DISCO final with fade.wav" id="15_7cpim"]
 [ext_resource type="Script" path="res://assetgraph_2.gd" id="15_cnv4t"]
+[ext_resource type="Texture2D" uid="uid://bt8ik04oo534g" path="res://Sprites/stickynote.png" id="15_fwc3k"]
 [ext_resource type="Script" path="res://magic.gd" id="19_iy051"]
 
 [node name="Main" type="Node2D"]
@@ -91,6 +92,11 @@ texture = ExtResource("13_l02t1")
 position = Vector2(15.5, 227.5)
 scale = Vector2(0.711, 0.711)
 texture = ExtResource("14_ianje")
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
+position = Vector2(434, -386)
+rotation = 0.314078
+texture = ExtResource("15_fwc3k")
 
 [node name="GlobalTimer" type="Timer" parent="."]
 wait_time = 0.114

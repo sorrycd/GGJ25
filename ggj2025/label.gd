@@ -25,7 +25,7 @@ extends Label
 
 "Maldavius Figtree shot dead in the ruins of Mauradon with a Wand of Blasting",
 
-"Unexpected explosion at the fireball factory hundreds dead.",
+"Unexpected explosion at the fireball factory hundreds dead in a 5km by 5km radius.",
 
 "The Barrens prospected for resources, found barren",
 
