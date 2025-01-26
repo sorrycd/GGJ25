@@ -35,8 +35,9 @@ func _on_sell_button_pressed() -> void:
 		#print('StockPrice:',stockprice)
 		sell_asset_data.emit([stock_holdings,liquid]) # emits the players holdings
 	if liquid > 5000:
-		pass
-	pass # Replace with function body.
+		get_tree().change_scene_to_file("res://win_screen/win_screen.tscn")
+	pass # Replace with function body. (edited)
+
 
 
 func _on_texture_button_pressed() -> void:
