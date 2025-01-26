@@ -275,8 +275,8 @@ autoplay = true
 
 [connection signal="pressed" from="Node2D/Buy" to="Holdings" method="_on_texture_button_pressed"]
 [connection signal="pressed" from="Node2D/Buy" to="Holdings" method="_on_buy_button_pressed"]
-[connection signal="pressed" from="Node2D/Sell" to="Holdings" method="_on_texture_button_2_pressed"]
 [connection signal="pressed" from="Node2D/Sell" to="Holdings" method="_on_sell_button_pressed"]
+[connection signal="pressed" from="Node2D/Sell" to="Holdings" method="_on_texture_button_2_pressed"]
 [connection signal="pressed" from="Node2D/Orb" to="." method="_on_orb_pressed"]
 [connection signal="pressed" from="Node2D/Orb" to="Stock Container/stockprice" method="_on_orb_pressed"]
 [connection signal="timeout" from="GlobalTimer" to="Holdings" method="_on_global_timer_timeout"]
