@@ -25,7 +25,7 @@ func _on_buy_button_pressed() -> void:
 	if liquid > stockprice:
 		stock_holdings += 1
 		liquid -= stockprice
-		sell_asset_data.emit([stock_holdings,liquid])
+		sell_asset_data.emit([stock_holdings,liquid]) #emits the players holdings
 	pass # Replace with function body.
 
 
@@ -34,5 +34,5 @@ func _on_sell_button_pressed() -> void:
 		stock_holdings -=1
 		liquid += stockprice
 		#print('StockPrice:',stockprice)
-		sell_asset_data.emit([stock_holdings,liquid])
+		sell_asset_data.emit([stock_holdings,liquid]) # emits the players holdings
 	pass # Replace with function body.
