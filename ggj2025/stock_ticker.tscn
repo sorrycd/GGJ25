@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b5f2v1y6eweyh"]
+[gd_scene load_steps=11 format=3 uid="uid://b5f2v1y6eweyh"]
 
 [ext_resource type="Script" path="res://Main.gd" id="1_gfst1"]
 [ext_resource type="Script" path="res://stock_ticker.gd" id="1_y8aqp"]
@@ -6,8 +6,10 @@
 [ext_resource type="Script" path="res://line_graph.gd" id="4_qnqhl"]
 [ext_resource type="Script" path="res://timer.gd" id="5_d147g"]
 [ext_resource type="Script" path="res://stockprice.gd" id="5_mpw5s"]
+[ext_resource type="Script" path="res://liquid.gd" id="8_5i27d"]
 [ext_resource type="Script" path="res://label.gd" id="8_6o2cy"]
 [ext_resource type="Script" path="res://BuyButton.gd" id="8_q8cm1"]
+[ext_resource type="Script" path="res://stock_remaining.gd" id="9_lhocw"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_gfst1")
@@ -48,12 +50,28 @@ line_color = Color(0.78462, 0.262849, 0.452135, 1)
 background_color = Color(0, 0, 0, 1)
 grid_color = Color(0.277528, 0.277528, 0.277528, 1)
 
-[node name="Label" type="Label" parent="Stock Container/stockprice"]
+[node name="Current Price" type="Label" parent="Stock Container/stockprice"]
 offset_left = 92.0
 offset_top = 8.0
-offset_right = 93.0
+offset_right = 151.0
 offset_bottom = 31.0
 script = ExtResource("8_6o2cy")
+
+[node name="Liquid" type="Label" parent="Stock Container/stockprice"]
+offset_left = 3.0
+offset_top = 47.0
+offset_right = 40.0
+offset_bottom = 80.0
+text = "liquid:"
+script = ExtResource("8_5i27d")
+
+[node name="Stock Remaining" type="Label" parent="Stock Container/stockprice"]
+offset_left = 3.0
+offset_top = 72.0
+offset_right = 136.0
+offset_bottom = 95.0
+text = "stock remaining: "
+script = ExtResource("9_lhocw")
 
 [node name="BuyButton" type="Button" parent="Stock Container"]
 layout_mode = 2
@@ -64,11 +82,15 @@ script = ExtResource("8_q8cm1")
 layout_mode = 2
 text = "SELL"
 
+[connection signal="timeout" from="GlobalTimer" to="Holdings" method="_on_global_timer_timeout"]
 [connection signal="timeout" from="GlobalTimer" to="Stock Container/stockprice" method="_on_timer_timeout"]
-[connection signal="buy_price" from="Stock Container/stockprice" to="." method="_on_stockprice_buy_price_buy_buttn"]
+[connection signal="sell_asset_data" from="Holdings" to="Stock Container/stockprice/Liquid" method="_on_holdings_sell_asset_data"]
+[connection signal="sell_asset_data" from="Holdings" to="Stock Container/stockprice/Stock Remaining" method="_on_holdings_sell_asset_data"]
 [connection signal="buy_price" from="Stock Container/stockprice" to="." method="_on_stockprice_buy_price"]
-[connection signal="buy_price" from="Stock Container/stockprice" to="Stock Container/stockprice/Label" method="_on_stockprice_buy_price"]
+[connection signal="buy_price" from="Stock Container/stockprice" to="." method="_on_stockprice_buy_price_buy_buttn"]
+[connection signal="buy_price" from="Stock Container/stockprice" to="Stock Container/stockprice/Current Price" method="_on_stockprice_buy_price"]
 [connection signal="buy_price" from="Stock Container/stockprice" to="Stock Container/BuyButton" method="_on_stockprice_buy_price"]
+[connection signal="market_changed" from="Stock Container/stockprice" to="Holdings" method="_on_stockprice_market_changed"]
 [connection signal="market_changed" from="Stock Container/stockprice" to="Stock Container/stockprice/linegraph" method="_on_economy_market_changed"]
 [connection signal="pressed" from="Stock Container/BuyButton" to="Holdings" method="_on_buy_button_pressed"]
 [connection signal="pressed" from="Stock Container/SellButton" to="Holdings" method="_on_sell_button_pressed"]
