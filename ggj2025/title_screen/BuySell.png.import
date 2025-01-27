@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://kqd3wpdu6f0p"
-path="res://.godot/imported/BuySell.png-18662177698f3513f2a7337bd9e3f6b3.ctex"
+path="res://.godot/imported/BuySell.png-616a119ea8a873c3c220c85dd123f281.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://title_screen/BuySell.png"
-dest_files=["res://.godot/imported/BuySell.png-18662177698f3513f2a7337bd9e3f6b3.ctex"]
+source_file="res://Title_Screen/BuySell.png"
+dest_files=["res://.godot/imported/BuySell.png-616a119ea8a873c3c220c85dd123f281.ctex"]
 
 [params]
 
