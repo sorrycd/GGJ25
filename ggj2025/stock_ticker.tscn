@@ -91,6 +91,7 @@ stream = ExtResource("7_ldcyf")
 stream = ExtResource("10_gm2by")
 
 [node name="Orb" type="TextureButton" parent="Node2D/Control"]
+layout_mode = 0
 offset_left = -538.0
 offset_top = -414.0
 offset_right = 229.0
@@ -324,8 +325,8 @@ stream = ExtResource("15_7cpim")
 autoplay = true
 
 [connection signal="pressed" from="Node2D/Control/Buy" to="Node2D/Control" method="_on_buy_pressed"]
-[connection signal="pressed" from="Node2D/Control/Buy" to="Holdings" method="_on_texture_button_pressed"]
 [connection signal="pressed" from="Node2D/Control/Buy" to="Holdings" method="_on_buy_button_pressed"]
+[connection signal="pressed" from="Node2D/Control/Buy" to="Holdings" method="_on_texture_button_pressed"]
 [connection signal="pressed" from="Node2D/Control/Sell" to="Node2D/Control" method="_on_sell_pressed"]
 [connection signal="pressed" from="Node2D/Control/Sell" to="Holdings" method="_on_sell_button_pressed"]
 [connection signal="pressed" from="Node2D/Control/Sell" to="Holdings" method="_on_texture_button_2_pressed"]
