@@ -1,7 +1,11 @@
 extends Label
 
+var start_x_position = null  # Store manual placement
+
 @export var scroll_speed = 250.0  # Pixels per second
+
 @export var news_items = ["Local priest scries the orb, the results may shock you",
+
 
 "Gnomish influences in the monarchy source of concern to serfs",
 
@@ -95,23 +99,29 @@ var viewport_width = 0
 func _ready():
 	viewport_width = get_viewport_rect().size.x
 	news_items.shuffle()
-	# Initial setup
+
 	current_text = news_items[0]
 	text = current_text
-	text_width = size.x
-	
-	# Position text just off screen to the right
-	position.x = viewport_width
-	text_width = size.x	
+	await get_tree().process_frame
+	text_width = get_minimum_size().x
+
+	# Store the manually set position, but only if it's not already moving
+	if start_x_position == null:
+		start_x_position = position.x
+
 func _process(delta):
-	# Move text left
+	# Move text left based on its manually set position
 	position.x -= scroll_speed * delta
-	# Reset text when it moves completely off screen
+
+	# Reset text when it's fully off-screen
 	if position.x < -text_width:
-		position.x = viewport_width
+		position.x = start_x_position  # Reset to the manually set position
 		
 		# Cycle to next news item
 		news_items.push_back(news_items.pop_front())
 		current_text = news_items[0]
 		text = current_text
-		text_width = size.x
+
+		# Recalculate text width for new message
+		await get_tree().process_frame
+		text_width = get_minimum_size().x

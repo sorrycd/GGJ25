@@ -9,6 +9,8 @@
 script = ExtResource("1_hqdfo")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+scale = Vector2(0.665, 0.665)
+transform = Transform2D(0.665, 0, 0, 0.665, 0, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
 position = Vector2(962, 542.5)

@@ -13,6 +13,9 @@
 script = ExtResource("1_1ac22")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+scale = Vector2(0.655, 0.655)
+transform = Transform2D(0.655, 0, 0, 0.655, 0, 0)
+follow_viewport_enabled = true
 
 [node name="Control" type="Control" parent="CanvasLayer"]
 layout_mode = 3

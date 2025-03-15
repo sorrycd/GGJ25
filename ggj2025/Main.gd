@@ -12,5 +12,5 @@ func _process(delta: float) -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("reset_title"):
-		get_tree().change_scene_to_file("res://title_screen/Title_Screen.tscn")
+		get_tree().change_scene_to_file("res://Title_Screen/Title_Screen.tscn")
 	pass
